@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.cq.starter:cq-spring-boot-starter:1.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://D:/apache-maven-3.6.0/respository/com/cq/starter/cq-spring-boot-starter/1.0-SNAPSHOT/cq-spring-boot-starter-1.0-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://D:/apache-maven-3.6.0/respository/com/cq/starter/cq-spring-boot-starter/1.0-SNAPSHOT/cq-spring-boot-starter-1.0-SNAPSHOT-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://D:/apache-maven-3.6.0/respository/com/cq/starter/cq-spring-boot-starter/1.0-SNAPSHOT/cq-spring-boot-starter-1.0-SNAPSHOT-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

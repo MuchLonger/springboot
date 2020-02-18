@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Insert title here</title>
+</head>
+<body>
+<h1 align="center">欢迎光临武林秘籍管理系统</h1>
+<!--用来判断是否登陆了，当前是没有登陆的情况下-->
+<div sec:authorize="!isAuthenticated()">
+    <!--只有没有登陆才能看到这个-->
+    <h2 align="center">游客您好，如果想查看武林秘籍 <a th:href="@{/userlogin}">请登录</a></h2>
+</div>
+<!--登陆的情况下-->
+<div sec:authorize="isAuthenticated()">
+    <div>
+        <!--获取人名-->
+        <span sec:authentication="name"></span>
+        ，你好你的角色有
+        <!--获取角色-->
+        <span sec:authentication="principal.authorities"></span>
+    </div>
+    <!--使用/logout来注销登陆-->
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="注销">
+    </form>
+</div>
+
+<hr>
+<!--当用户含有VIP1身份时才能看到这个（潜含义还有就是未登陆也看不到）-->
+<div sec:authorize="hasRole('VIP1')">
+    <h3>普通武功秘籍</h3>
+    <ul>
+        <li><a th:href="@{/level1/1}">罗汉拳</a></li>
+    </ul>
+</div>
+<!--VIP2才能看到-->
+<div sec:authorize="hasRole('VIP2')">
+    <h3>高级武功秘籍</h3>
+    <ul>
+        <li><a th:href="@{/level2/1}">太极拳</a></li>
+    </ul>
+</div>
+<!--VIP3才能看到-->
+<div sec:authorize="hasRole('VIP3')">
+    <h3>绝世武功秘籍</h3>
+    <ul>
+        <li><a th:href="@{/level3/1}">葵花宝典</a></li>
+    </ul>
+</div>
+</body>
+</html>

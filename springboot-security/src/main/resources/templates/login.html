@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1 align="center">欢迎登陆武林秘籍管理系统</h1>
+	<hr>
+	<div align="center">
+		<!--action必须和config内参数设置的是同一个方法，并且方法必须为post-->
+		<form th:action="@{/userlogin}" method="post">
+			<!--name属性也必须和formLogin()内的usernameParameter内的值一样（user）-->
+			用户名:<input name="user" type="text"/><br>
+			<!--name属性也必须和formLogin()内的passwordParameter内的值一样（pwd）-->
+			密码:<input name="pwd" type="password"><br/>
+			<!--name属性也必须和rememberMe()内的rememberParameter内的值一样（rem）-->
+			<input type="checkbox" name="rem"/>记住我
+			<input type="submit" value="登陆">
+		</form>
+	</div>
+</body>
+</html>

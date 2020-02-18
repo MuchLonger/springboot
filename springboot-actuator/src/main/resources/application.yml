@@ -1,0 +1,36 @@
+management:
+  server:
+    #    设置端口
+    port: 8333
+    servlet:
+      # 只有在设置了 management.server.port 时才有效，和springboot的context-path一样在url后添加/ac才能访问
+      context-path: /ac
+
+  #  springboot2.0默认只有/health和/info是暴露的（即可以在浏览器内访问）
+  #  下面配置是除了env的端口，其他的端口都暴露，注意include需要添加 "*"
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        exclude: env
+      #      基本路径，原本是/actuator，和上面的context-path一起，url只有为 “http://localhost:8333/ac/ac/beans”才能访问
+      base-path: /ac
+
+  endpoint:
+    #    {"status":"DOWN"}如果不添加下面，会只出现这句话。添加下面语句可以显示详细信息
+    health:
+      show-details: always
+    #  启用远程关闭（使用post方法访问http://localhost:8333/ac/ac/shutdown，即可关闭）
+    shutdown:
+      enabled: true
+
+#这样就能在浏览器内使用/ac/ac/info得到信息
+info:
+  app:
+    id: hello
+    version: 1.1.1
+
+#指定redis地址的信息，这样就能在info内查看到redis
+spring:
+  redis:
+    host: 192.168.248.132
